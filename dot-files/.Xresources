@@ -1,0 +1,9 @@
+
+Xft*antialias: true
+Xft*autohint: true
+XTerm*scrollBar: true
+XTerm*rightScrollBar: true
+XTerm*toolBar: off
+XTerm*faceName: Inconsolatazi4
+XTerm*faceSize: 10
+XTerm*saveLines:10000
