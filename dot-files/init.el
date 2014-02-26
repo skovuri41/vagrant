@@ -29,7 +29,9 @@
   deft
   bookmark+
   zen-and-art-theme
-  cider  
+  cider
+  clojure-mode
+  smartparens
   zoom-frm)
     
   "A list of packages to ensure are installed at launch.")
@@ -49,7 +51,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "Inconsolata" :foundry "unknown" :slant normal :weight normal :height 105 :width normal))))
+ ;;'(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :slant normal :weight normal :height 105 :width normal))))
  '(hi-blue ((t (:background "sky blue"))))
  '(hl-line ((t (:background "khaki1"))))
  '(idle-highlight ((t (:background "gray" :foreground "black"))))
@@ -112,8 +114,8 @@
 
 ;;; set inconsolata font, install before using it
 ;;(set-default-font "Inconsolatazi4-12")
-(set-default-font "Consolas-11")
-
+;;(set-default-font "Consolas-11")
+;;(set-default-font " DejaVu Sans Mono")
 ;;;; copy-line with variable arugments
 (defun copy-line (&optional arg)
   "Copy lines (as many as prefix argument) in the kill ring"
@@ -313,8 +315,8 @@
 
 ;;;;;; Default Browser
 (setq browse-url-browser-function 'browse-url-generic)
-(add-to-list 'exec-path "/cygdrive/c/Documents and Settings/sk46584/Local Settings/Application Data/Google/Chrome/Application")
-(setq browse-url-generic-program "Chrome")
+;;(add-to-list 'exec-path "/cygdrive/c/Documents and Settings/sk46584/Local Settings/Application Data/Google/Chrome/Application")
+;;(setq browse-url-generic-program "Chrome")
 
 ;;;; Web Jump
 (global-set-key (kbd "C-x g") 'webjump)
@@ -405,5 +407,13 @@
 
 ;;Note that the history is written to the file when you kill the REPL buffer (which includes invoking cider-quit) or you quit Emacs.
 
+;;;;;; cider end 
+
+;;;;; smartparens
+
+(smartparens-global-mode t)
+;; highlights matching pairs
+(show-smartparens-global-mode t)
+(paredit-mode 0)
 
 ;;; bookmark+
