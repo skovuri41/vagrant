@@ -6,8 +6,9 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
  
-  config.vm.box = "vishaaka"
-  config.vm.box_url = "http://files.vagrantup.com/precise64.box"
+  #config.vm.box = "vishaaka"
+  #config.vm.box_url = "http://files.vagrantup.com/precise64.box"
+  config.vm.box = "hashicorp/precise32"
   config.vm.network :forwarded_port, guest: 80, host: 8080
 
   # Create a private network, which allows host-only access to the machine

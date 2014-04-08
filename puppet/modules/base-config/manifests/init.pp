@@ -51,7 +51,7 @@ class base-config(
      exec { "git clone tmux-code":
       cwd     => '/vagrant',
       creates => "/vagrant/tmux-code",
-      command => "git clone git://git.code.sf.net/p/tmux/tmux-code tmux-code",
+      command => "git clone http://git.code.sf.net/p/tmux/tmux-code tmux-code",
       require => Package[ 'git' ],
       onlyif   => "test ! -d /vagrant/tmux-code",
     }
