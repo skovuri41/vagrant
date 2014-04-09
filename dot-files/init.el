@@ -34,7 +34,8 @@
   smartparens
   zoom-frm)
     
-  "A list of packages to ensure are installed at launch.")
+  "A list of packages to ensure
+ are installed at launch.")
 
 (dolist (p my-packages)
   (when (not (package-installed-p p))
@@ -46,14 +47,15 @@
 ;;(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 (global-rainbow-delimiters-mode)
 
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  ;;'(default ((t (:family "DejaVu Sans Mono" :foundry "unknown" :slant normal :weight normal :height 105 :width normal))))
- '(hi-blue ((t (:background "sky blue"))))
- '(hl-line ((t (:background "khaki1"))))
+;; '(hi-blue ((t (:background "sky blue"))))
+;; '(hl-line ((t (:background "khaki1"))))
  '(idle-highlight ((t (:background "gray" :foreground "black"))))
  '(minibuffer-prompt ((t (:background "purple3" :foreground "white smoke"))))
  '(rainbow-delimiters-depth-1-face ((t (:foreground "dark magenta"))))
@@ -89,7 +91,7 @@
 ;;(load-theme 'solarized-dark t)
 ;;(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 ;;(load-theme 'moe-dark t)
-(load-theme 'moe-light t)
+;;; (load-theme 'moe-light t)
 
 ;; switch buffers
 (global-set-key (kbd "C-<tab>") 'next-buffer)
@@ -290,6 +292,7 @@
 ;(setq org-agenda-ndays 7)
 (setq org-agenda-show-all-dates t)
 (setq org-agenda-skip-deadline-if-done t)
+
 (setq org-agenda-skip-scheduled-if-done t)
 (setq org-agenda-start-on-weekday nil)
 (setq org-startup-indented t)
@@ -410,10 +413,23 @@
 ;;;;;; cider end 
 
 ;;;;; smartparens
-
+(require 'smartparens-config)
+;;(package-initialize)
 (smartparens-global-mode t)
 ;; highlights matching pairs
 (show-smartparens-global-mode t)
 (paredit-mode 0)
 
+(add-hook 'clojure-mode-hook (lambda () (paredit-mode 0)))
+(setq clojure-enable-paredit nil)
+
+(add-hook 'cider-repl-mode-hook 'smartparens-strict-mode)
+(add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
+
+
 ;;; bookmark+
+
+(remove-hook 'prog-mode-hook 'esk-turn-on-hl-line-mode)
+
+;; enable delete by selection
+(delete-selection-mode t)
