@@ -25,14 +25,15 @@
   ace-jump-mode
   ace-jump-buffer
   jump-char
-  anything
   deft
   bookmark+
   zen-and-art-theme
   cider
   clojure-mode
   smartparens
-  zoom-frm)
+  zoom-frm
+  helm
+  projectile)
     
   "A list of packages to ensure
  are installed at launch.")
@@ -425,11 +426,16 @@
 
 (add-hook 'cider-repl-mode-hook 'smartparens-strict-mode)
 (add-hook 'cider-repl-mode-hook 'rainbow-delimiters-mode)
-
-
-;;; bookmark+
-
 (remove-hook 'prog-mode-hook 'esk-turn-on-hl-line-mode)
 
 ;; enable delete by selection
 (delete-selection-mode t)
+
+
+;; helm configuration begin
+(global-set-key (kbd "C-c h") 'helm-mini)
+(helm-mode 1)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
+
+;; projectile configuration begin
+(projectile-global-mode)
